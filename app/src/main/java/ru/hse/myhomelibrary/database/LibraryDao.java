@@ -19,7 +19,7 @@ public interface LibraryDao {
     void insertBook(List<BookEntity> data);
 
     @Delete
-    void delete(BookEntity data);
+    void deleteBook(BookEntity data);
 
     @Query("SELECT * FROM book " +
             "WHERE favorite != 0 " +
