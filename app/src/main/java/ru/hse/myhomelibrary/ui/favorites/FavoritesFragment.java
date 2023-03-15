@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import ru.hse.myhomelibrary.databinding.FragmentDashboardBinding;
+import ru.hse.myhomelibrary.databinding.FragmentFavoritesBinding;
 
 public class FavoritesFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentFavoritesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         FavoritesViewModel dashboardViewModel =
                 new ViewModelProvider(this).get(FavoritesViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentFavoritesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
