@@ -8,6 +8,8 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity(tableName = "book",
         indices = {
                 @Index(value = {"name"}, unique = true),
@@ -41,4 +43,12 @@ public class BookEntity {
     @ColumnInfo(name = "favorite")
     @NonNull
     public Integer favorite = 0;
+
+    @ColumnInfo(name= "date_of_create")
+    @NonNull
+    public Date createDate = new Date();
+
+    @ColumnInfo(name= "date_of_edit")
+    @NonNull
+    public Date editDate = new Date();
 }

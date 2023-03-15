@@ -21,9 +21,13 @@ public interface LibraryDao {
     @Delete
     void delete(BookEntity data);
 
+    @Query("SELECT * FROM book " +
+            "WHERE favorite != 0 " +
+            "ORDER BY date_of_create")
+    LiveData<List<BookEntity>> getAllFavorites();
+
     @Transaction
     @Query("SELECT * FROM book " +
-            "WHERE :date <= time_start AND :nextDate >= time_start and group_id = :groupId " +
-            "ORDER BY time_start") //TODO какая сортировка?
-    LiveData<List<BookEntity>> getAllFavorites();
+            "WHERE id = :id")
+    LiveData<List<BookEntity>> getBookById(int id);
 }

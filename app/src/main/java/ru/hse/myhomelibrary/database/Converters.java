@@ -10,6 +10,7 @@ import androidx.room.TypeConverter;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
 import ru.hse.myhomelibrary.BuildConfig;
 import ru.hse.myhomelibrary.MyApp;
@@ -20,7 +21,7 @@ public class Converters {
     public static Uri fromPath(String value) {
         try {
             return value == null ? null : GetUriFromPath(value);
-        } catch (IOException e){
+        } catch (IOException e) {
             Log.e("Convert uriFromPath", e.getMessage());
             return null;
         }
@@ -34,7 +35,17 @@ public class Converters {
     }
 
     @TypeConverter
-    public static String dateToTimestamp(Uri uri) {
+    public static String uriToString(Uri uri) {
         return uri == null ? null : uri.getPath();
+    }
+
+    @TypeConverter
+    public static Date fromTimestamp(Long value) {
+        return value == null ? null : new Date(value);
+    }
+
+    @TypeConverter
+    public static Long dateToTimestamp(Date date) {
+        return date == null ? null : date.getTime();
     }
 }
