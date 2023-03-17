@@ -96,3 +96,23 @@ dependencies {
     // optional - Test helpers for Lifecycle runtime
     testImplementation "androidx.lifecycle:lifecycle-runtime-testing:$lifecycle_version"
 }
+applicationVariants.all { variant ->
+    variant.outputs.all {
+        outputFileName = "${variant.name}-${variant.versionName}.apk"
+    }
+    variant.assemble.doLast {
+        println "Variant: ${variant.name} Version: ${variant.versionName} APK: ${variant.outputs.get(0).outputFile}"
+    }
+}
+
+afterEvaluate {
+    tasks.matching {
+        it.name.startsWith('assemble') && it.name.endsWith('Release')
+    }.each { task ->
+        task.finalizedBy 'stacktrace'
+    }
+}
+
+task stacktrace(type: Exec) {
+    commandLine './gradlew', '-Pstacktrace=true', 'assembleRelease'
+}
