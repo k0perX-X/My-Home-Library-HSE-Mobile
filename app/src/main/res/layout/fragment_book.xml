@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDD9B2"
+    tools:context=".ui.book.BookFragment">
+
+
+    <TextView
+        android:id="@+id/text_dashboard"
+        android:layout_width="391dp"
+        android:layout_height="206dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="411dp"
+        android:layout_height="233dp"
+        android:background="#E4DFB0"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Удалить запись"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="667dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="322dp"
+        android:layout_height="32dp"
+        android:text="Название книги"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="243dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="276dp"
+        android:layout_height="31dp"
+        android:text="Автор(-ы)"
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="286dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="111dp"
+        android:layout_height="30dp"
+        android:text="Год издания"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="325dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="127dp"
+        android:layout_height="29dp"
+        android:text="Издательство"
+        tools:layout_editor_absoluteX="204dp"
+        tools:layout_editor_absoluteY="326dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="#D1C23B"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:layout_editor_absoluteX="343dp"
+        tools:layout_editor_absoluteY="608dp" />
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView"
+        android:layout_width="80dp"
+        android:layout_height="28dp"
+        android:text="Рецензия"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="425dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="💛 Избранное"
+        tools:layout_editor_absoluteX="131dp"
+        tools:layout_editor_absoluteY="365dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="В избранном"
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="365dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
