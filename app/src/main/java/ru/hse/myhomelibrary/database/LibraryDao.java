@@ -33,5 +33,4 @@ public interface LibraryDao {
 
     @Update
     void updateBook(BookEntity data);
-
 }

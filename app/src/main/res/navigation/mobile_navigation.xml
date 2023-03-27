@@ -13,9 +13,11 @@
 
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="ru.hse.myhomelibrary.ui.favorites.FavoritesFragment"
+        android:name="ru.hse.myhomelibrary.ui.book.BookFragment"
         android:label="@string/title_favorites"
-        tools:layout="@layout/fragment_favorites" />
+        tools:layout="@layout/fragment_book" />
+
+<!--    TODO исправить на favorites-->
 
     <fragment
         android:id="@+id/navigation_settings"

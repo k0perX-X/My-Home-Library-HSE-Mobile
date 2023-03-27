@@ -36,6 +36,7 @@ public class LibraryRepository {
         return libraryDao.getBookById(id);
     }
 
-    public void updateBook(BookEntity book){libraryDao.updateBook(book);}
-
+    public void updateBook(BookEntity book) {
+        libraryDao.updateBook(book);
+    }
 }
