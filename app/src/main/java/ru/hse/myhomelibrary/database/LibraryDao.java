@@ -13,7 +13,8 @@ import java.util.List;
 
 @Dao
 public interface LibraryDao {
-    @Query("SELECT * FROM `book`")
+    @Query("SELECT * FROM `book`"+
+            "ORDER BY date_of_edit DESC")
     LiveData<List<BookEntity>> getAllBooks();
 
     @Insert
@@ -24,7 +25,7 @@ public interface LibraryDao {
 
     @Query("SELECT * FROM book " +
             "WHERE favorite != 0 " +
-            "ORDER BY date_of_create")
+            "ORDER BY date_of_edit DESC")
     LiveData<List<BookEntity>> getAllFavorites();
 
     @Transaction

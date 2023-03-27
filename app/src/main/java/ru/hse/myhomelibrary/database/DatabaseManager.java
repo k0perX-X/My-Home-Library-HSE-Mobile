@@ -33,6 +33,7 @@ public class DatabaseManager {
                                 Executors.newSingleThreadScheduledExecutor().execute(() -> initData(context));
                             }
                         })
+                .allowMainThreadQueries()
                 .build();
     }
 

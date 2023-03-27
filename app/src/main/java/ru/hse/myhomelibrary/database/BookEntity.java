@@ -8,6 +8,7 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity(tableName = "book",
@@ -16,7 +17,7 @@ import java.util.Date;
                 @Index(value = {"author"}, unique = true)
         }
 )
-public class BookEntity {
+public class BookEntity implements Serializable {
     @PrimaryKey
     public int id;
 
@@ -29,10 +30,10 @@ public class BookEntity {
     public String author = "";
 
     @ColumnInfo(name = "year_of_publishing")
-    public int yearPublishing;
+    public Integer yearPublishing;
 
     @ColumnInfo(name = "place_of_publishing")
-    public int placePublishing;
+    public String placePublishing;
 
     @ColumnInfo(name = "path_to_picture")
     public Uri imageUri;
