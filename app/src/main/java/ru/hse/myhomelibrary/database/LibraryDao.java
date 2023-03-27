@@ -32,6 +32,6 @@ public interface LibraryDao {
             "WHERE id = :id")
     LiveData<List<BookEntity>> getBookById(int id);
 
-//    @Update
-//    void updateBook(BookEntity data);
+    @Update
+    void updateBook(BookEntity data);
 }

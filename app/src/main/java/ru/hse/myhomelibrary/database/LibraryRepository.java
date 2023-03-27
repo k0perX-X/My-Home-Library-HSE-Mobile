@@ -39,7 +39,7 @@ public class LibraryRepository {
     public LiveData<List<BookEntity>> getBookById(int id) {
         return libraryDao.getBookById(id);
     }
-//    public void updateBook(BookEntity book) {
-//        libraryDao.updateBook(book);
-//    }
+    public void updateBook(BookEntity book) {
+        libraryDao.updateBook(book);
+    }
 }
