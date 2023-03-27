@@ -1,14 +1,12 @@
 package ru.hse.myhomelibrary.database;
 
 import android.app.Application;
-//import android.arch.lifecycle.AndroidViewModel;
-//import android.arch.lifecycle.LiveData;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.AndroidViewModel;
 
-import java.util.Date;
+
 import java.util.List;
 
 public class DatabaseViewModel extends AndroidViewModel {
@@ -39,6 +37,8 @@ public class DatabaseViewModel extends AndroidViewModel {
     public LiveData<List<BookEntity>> getBookById(int id) {
         return repository.getBookById(id);
     }
+
+    public void updateBook(BookEntity book){repository.updateBook(book); }
 
 }
 

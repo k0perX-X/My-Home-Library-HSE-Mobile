@@ -3,10 +3,6 @@ package ru.hse.myhomelibrary.database;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Delete;
-import androidx.room.Insert;
-import androidx.room.Query;
-import androidx.room.Transaction;
 
 import java.util.List;
 
@@ -39,7 +35,7 @@ public class LibraryRepository {
     public LiveData<List<BookEntity>> getBookById(int id) {
         return libraryDao.getBookById(id);
     }
-//    public void updateBook(BookEntity book) {
-//        libraryDao.updateBook(book);
-//    }
+
+    public void updateBook(BookEntity book){libraryDao.updateBook(book);}
+
 }

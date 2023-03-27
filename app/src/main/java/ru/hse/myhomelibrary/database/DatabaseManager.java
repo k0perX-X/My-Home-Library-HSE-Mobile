@@ -1,15 +1,12 @@
 package ru.hse.myhomelibrary.database;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.Executors;
 
 public class DatabaseManager {
@@ -30,7 +27,12 @@ public class DatabaseManager {
                         new RoomDatabase.Callback() {
                             @Override
                             public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                                Executors.newSingleThreadScheduledExecutor().execute(() -> initData(context));
+                                Executors.newSingleThreadScheduledExecutor().execute(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        initData(context);
+                                    }
+                                });
                             }
                         })
                 .build();
@@ -40,26 +42,5 @@ public class DatabaseManager {
         return db.libraryDao();
     }
 
-    private void initData(Context context) {
-        try {
-            List<BookEntity> books = new ArrayList<>();
-            BookEntity book;
-            book = new BookEntity();
-            book.id = 0;
-            book.name = "12 стульев";
-            book.author = "Ильф и Петров";
-            book.favorite = 1;
-            books.add(book);
-            book = new BookEntity();
-            book.id = 1;
-            book.name = "Жизнь, необыкновенные и удивительные приключения Робинзона Крузо";
-            book.author = "Даниэль Дефо";
-            book.favorite = 0;
-            books.add(book);
-            DatabaseManager.getInstance(context).getLibraryDao().insertBook(books);
-        } catch (Exception e) {
-            Log.e("initDatabase", e.getMessage(), e);
-        }
-        Log.i("initDatabase", "done");
-    }
+    private void initData(Context context) {}
 }

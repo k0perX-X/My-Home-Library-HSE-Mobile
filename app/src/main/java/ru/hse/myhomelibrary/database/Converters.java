@@ -1,8 +1,7 @@
 package ru.hse.myhomelibrary.database;
 
-import android.app.Application;
-import android.net.Uri;
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 
 import androidx.core.content.FileProvider;

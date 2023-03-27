@@ -18,14 +18,14 @@ public class BookFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-//        BookViewModel dashboardViewModel =
-//                new ViewModelProvider(this).get(BookViewModel.class);
-//
+        BookViewModel dashboardViewModel =
+                new ViewModelProvider(this).get(BookViewModel.class);
+
         binding = FragmentBookBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-//
-//        final TextView textView = binding.textDashboard;
-//        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        final TextView textView = binding.textDashboard;
+        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

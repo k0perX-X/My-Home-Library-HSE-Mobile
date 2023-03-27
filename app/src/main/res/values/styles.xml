@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="BookItemText" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/colorOnSecondary</item>
-        <item name="android:textSize">16sp</item>
+    <style name="CustomButton" parent="Widget.AppCompat.Button">
+        <item name="backgroundTint">#B79862</item>
     </style>
-
 </resources>

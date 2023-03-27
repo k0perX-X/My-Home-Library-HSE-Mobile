@@ -8,7 +8,6 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 
-import java.util.Date;
 import java.util.List;
 
 @Dao
@@ -32,6 +31,7 @@ public interface LibraryDao {
             "WHERE id = :id")
     LiveData<List<BookEntity>> getBookById(int id);
 
-//    @Update
-//    void updateBook(BookEntity data);
+    @Update
+    void updateBook(BookEntity data);
+
 }
