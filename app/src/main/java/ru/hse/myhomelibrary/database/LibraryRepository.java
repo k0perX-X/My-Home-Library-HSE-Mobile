@@ -8,6 +8,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
+import java.util.Date;
 import java.util.List;
 
 public class LibraryRepository {
@@ -40,6 +41,7 @@ public class LibraryRepository {
         return libraryDao.getBookById(id);
     }
     public void updateBook(BookEntity book) {
+        book.editDate = new Date();
         libraryDao.updateBook(book);
     }
 }

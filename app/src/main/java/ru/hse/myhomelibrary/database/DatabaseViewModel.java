@@ -40,5 +40,9 @@ public class DatabaseViewModel extends AndroidViewModel {
         return repository.getBookById(id);
     }
 
+    public void updateBook(BookEntity book) {
+        repository.updateBook(book);
+    }
+
 }
 

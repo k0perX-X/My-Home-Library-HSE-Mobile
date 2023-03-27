@@ -21,4 +21,9 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="add_new_book_button">Добавить книгу</string>
     <string name="search_title">Поиск</string>
+    <string name="book_image_description">Book image</string>
+    <string name="make_book_favorite">В избранное</string>
+    <string name="book_already_on_favorite">В избранном</string>
+    <string name="book_review">Рецензия</string>
+    <string name="delete_book_entry">Удалить запись</string>
 </resources>

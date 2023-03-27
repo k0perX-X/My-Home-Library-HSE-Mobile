@@ -2,6 +2,7 @@ package ru.hse.myhomelibrary.ui.home;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,9 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,12 +25,14 @@ import ru.hse.myhomelibrary.R;
 import ru.hse.myhomelibrary.database.BookEntity;
 import ru.hse.myhomelibrary.database.DatabaseViewModel;
 import ru.hse.myhomelibrary.databinding.FragmentHomeBinding;
+import ru.hse.myhomelibrary.ui.book.BookActivity;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private RecyclerView recyclerView;
     private ItemAdapter adapter;
+    private Activity activity;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -41,12 +42,13 @@ public class HomeFragment extends Fragment {
         DatabaseViewModel databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        Activity activity = getActivity();
+
+        activity = getActivity();
         assert activity != null;
         recyclerView = binding.listView;
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.addItemDecoration(new DividerItemDecoration(activity, LinearLayoutManager.VERTICAL));
-        adapter = new ItemAdapter(this::onScheduleItemClick);
+        adapter = new ItemAdapter(this::onBookItemClick);
 
 //        final TextView textView = binding.textHome;
 //        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
@@ -54,9 +56,9 @@ public class HomeFragment extends Fragment {
             setData(books);
             assert books != null;
             Log.i("database", String.valueOf(books.size()));
-            for (BookEntity book:
-                 books) {
-                Log.i("database" , book.name);
+            for (BookEntity book :
+                    books) {
+                Log.i("database", book.name);
             }
         });
 
@@ -68,8 +70,11 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
-    private void onScheduleItemClick(BookEntity bookItem) {
-        //TODO
+    private void onBookItemClick(BookEntity bookItem) {
+        Intent intent = new Intent(activity, BookActivity.class);
+        intent.putExtra(BookActivity.ARG_BOOK_ENTITY, bookItem);
+        Log.d("onBookItemClick", bookItem.name.toString());
+        startActivity(intent);
     }
 //    @Override
 //    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
