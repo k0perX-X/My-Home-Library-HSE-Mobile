@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Transaction;
+import androidx.room.Update;
 
 import java.util.Date;
 import java.util.List;
@@ -30,4 +31,7 @@ public interface LibraryDao {
     @Query("SELECT * FROM book " +
             "WHERE id = :id")
     LiveData<List<BookEntity>> getBookById(int id);
+
+    @Update
+    void updateBook(BookEntity data);
 }
