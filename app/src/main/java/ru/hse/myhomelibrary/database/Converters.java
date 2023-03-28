@@ -1,6 +1,5 @@
 package ru.hse.myhomelibrary.database;
 
-import android.app.Application;
 import android.net.Uri;
 import android.content.Context;
 import android.util.Log;
@@ -29,14 +28,15 @@ public class Converters {
 
     private static Uri GetUriFromPath(String path) throws IOException {
         File file = new File(path);
-        Context context = MyApp.getContext();
-        return FileProvider.getUriForFile(context,
-                BuildConfig.APPLICATION_ID + ".provider", file);
+//        Context context = MyApp.getContext();
+        return Uri.parse(path);
+//        return FileProvider.getUriForFile(context,
+//                BuildConfig.APPLICATION_ID + ".provider", file);
     }
 
     @TypeConverter
     public static String uriToString(Uri uri) {
-        return uri == null ? null : uri.getPath();
+        return uri == null ? null : uri.toString();
     }
 
     @TypeConverter

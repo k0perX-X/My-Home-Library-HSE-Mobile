@@ -13,13 +13,13 @@ import java.util.Date;
 
 @Entity(tableName = "book",
         indices = {
-                @Index(value = {"name"}, unique = true),
-                @Index(value = {"author"}, unique = true)
+                @Index(value = {"name"}),
+                @Index(value = {"author"})
         }
 )
-public class BookEntity implements Serializable {
-    @PrimaryKey
-    public int id;
+public class BookEntity {
+    @PrimaryKey(autoGenerate = true)
+    public Integer id;
 
     @ColumnInfo(name = "name")
     @NonNull

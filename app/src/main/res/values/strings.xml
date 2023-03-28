@@ -26,4 +26,16 @@
     <string name="book_already_on_favorite">В избранном</string>
     <string name="book_review">Рецензия</string>
     <string name="delete_book_entry">Удалить запись</string>
+    <string name="deleteButtonToast">Нажмите дважды чтобы удалить</string>
+    <string name="favorite_description_book_item">favorite</string>
+    <string name="floatin_button_description_book_activity">Изменить данные о книге</string>
+    <string name="edit_text_description_book_activity">Напишите рецензию о книге, чтобы не забыть</string>
+    <string name="edit_add_photo">Добавить фото</string>
+    <string name="edit_book_name">Название книги</string>
+    <string name="edit_book_author">Автор(-ы)</string>
+    <string name="edit_year_publishing">Год издания</string>
+    <string name="edit_place_publishing">Место издания</string>
+    <string name="alertSettingsDialogMessage">Для снятия фото нужно предоставить права на доступ к камере</string>
+    <string name="alertSettingsDialogTitle">Нужно предоставить права</string>
+    <string name="alertSettingsDialogOK">OK</string>
 </resources>

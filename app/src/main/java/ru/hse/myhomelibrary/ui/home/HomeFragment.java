@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,7 @@ import ru.hse.myhomelibrary.R;
 import ru.hse.myhomelibrary.database.BookEntity;
 import ru.hse.myhomelibrary.database.DatabaseViewModel;
 import ru.hse.myhomelibrary.databinding.FragmentHomeBinding;
+import ru.hse.myhomelibrary.ui.addBook.AddBookActivity;
 import ru.hse.myhomelibrary.ui.book.BookActivity;
 
 public class HomeFragment extends Fragment {
@@ -36,9 +39,6 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-//        HomeViewModel homeViewModel =
-//                new ViewModelProvider(this).get(HomeViewModel.class);
-
         DatabaseViewModel databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
@@ -49,17 +49,17 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.addItemDecoration(new DividerItemDecoration(activity, LinearLayoutManager.VERTICAL));
         adapter = new ItemAdapter(this::onBookItemClick);
+        FloatingActionButton addNewBookButton = binding.addNewBookButton;
+        addNewBookButton.setOnClickListener(v -> addNewBookButton());
 
-//        final TextView textView = binding.textHome;
-//        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         databaseViewModel.getAllBooks().observe(getViewLifecycleOwner(), books -> {
             setData(books);
             assert books != null;
-            Log.i("database", String.valueOf(books.size()));
-            for (BookEntity book :
-                    books) {
-                Log.i("database", book.name);
-            }
+//            Log.i("database", String.valueOf(books.size()));
+//            for (BookEntity book :
+//                    books) {
+//                Log.i("database", book.name);
+//            }
         });
 
         return binding.getRoot();
@@ -72,14 +72,17 @@ public class HomeFragment extends Fragment {
 
     private void onBookItemClick(BookEntity bookItem) {
         Intent intent = new Intent(activity, BookActivity.class);
-        intent.putExtra(BookActivity.ARG_BOOK_ENTITY, bookItem);
-        Log.d("onBookItemClick", bookItem.name.toString());
+        BookActivity.bookEntity = bookItem;
+//        intent.putExtra(BookActivity.ARG_BOOK_ENTITY, bookItem);
+        Log.d("onBookItemClick", bookItem.name);
         startActivity(intent);
     }
-//    @Override
-//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-//        inflater.inflate(R.menu.fragment_home_menu, menu);
-//    }
+
+    private void addNewBookButton() {
+        Intent intent = new Intent(activity, AddBookActivity.class);
+        AddBookActivity.bookEntity = null;
+        startActivity(intent);
+    }
 
     @Override
     public void onDestroyView() {

@@ -8,17 +8,19 @@
     tools:context=".ui.book.BookActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
+        android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:contentDescription="@string/floatin_button_description_book_activity"
         android:focusable="true"
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_edit_24" />
+        app:srcCompat="@drawable/baseline_edit_24"
+        app:tint="@color/colorOnPrimary" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -36,47 +38,46 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1" />-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/photoConstraintLayout"
+                android:layout_width="225dp"
+                android:layout_height="300dp"
+                android:background="@color/colorPrimary">
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_book_50"
+                android:contentDescription="@string/book_image_description"/>
+            <ImageView
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/book_image_description" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <ImageView-->
+<!--                    android:id="@+id/constraintLayout"-->
+<!--                    android:layout_width="225dp"-->
+<!--                    android:layout_height="300dp"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    android:contentDescription="@string/book_image_description"-->
+<!--                    tools:srcCompat="@tools:sample/avatars" />-->
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1" />-->
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    tools:srcCompat="@tools:sample/avatars"
-                    android:contentDescription="@string/book_image_description" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-            </LinearLayout>
-            <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content">-->
-
-            <!--                <ImageView-->
-            <!--                    android:layout_width="0dp"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_marginStart="16dp"-->
-            <!--                    android:layout_marginEnd="16dp"-->
-            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                    app:layout_constraintStart_toStartOf="parent"-->
-            <!--                    app:layout_constraintTop_toTopOf="parent"-->
-            <!--                    tools:srcCompat="@tools:sample/avatars" />-->
-
-            <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
-
+<!--            </LinearLayout>-->
 
             <TextView
                 android:id="@+id/nameTextView"
@@ -157,12 +158,17 @@
                 <EditText
                     android:id="@+id/editTextTextMultiLine"
                     android:layout_width="0dp"
-                    android:layout_height="400dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:autofillHints=""
                     android:background="@drawable/transperent_color"
+                    android:gravity="top|start"
+                    android:hint="@string/edit_text_description_book_activity"
                     android:inputType="textMultiLine"
+                    android:lines="20"
+                    android:padding="10dp"
+                    android:scrollbars="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -172,7 +178,7 @@
 
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/deleteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="118dp"
@@ -180,11 +186,11 @@
                 android:layout_marginEnd="118dp"
                 android:layout_marginBottom="16dp"
                 android:backgroundTint="#F44336"
+                android:text="@string/delete_book_entry"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_dashboard"
-                android:text="@string/delete_book_entry" />
+                app:layout_constraintTop_toBottomOf="@+id/text_dashboard" />
 
         </LinearLayout>
     </ScrollView>

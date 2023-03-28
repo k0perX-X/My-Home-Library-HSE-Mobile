@@ -13,15 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="ru.hse.myhomelibrary.ui.book.BookActivity"
+        android:name="ru.hse.myhomelibrary.ui.favorites.FavoritesFragment"
         android:label="@string/title_favorites"
-        tools:layout="@layout/activity_book" />
+        tools:layout="@layout/fragment_favorites" />
 
-<!--    TODO исправить на favorites-->
-
-    <fragment
-        android:id="@+id/navigation_settings"
-        android:name="ru.hse.myhomelibrary.ui.settings.SettingsFragment"
-        android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_settings"-->
+<!--        android:name="ru.hse.myhomelibrary.ui.settings.SettingsFragment"-->
+<!--        android:label="@string/title_settings"-->
+<!--        tools:layout="@layout/fragment_settings" />-->
 </navigation>

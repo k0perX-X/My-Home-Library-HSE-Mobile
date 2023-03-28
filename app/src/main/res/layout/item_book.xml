@@ -1,58 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="top"
     android:background="@color/colorSecondary">
 
-    <ImageView
-        android:id="@+id/photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/photoConstraintLayout"
+        android:layout_width="105dp"
+        android:layout_height="140dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:maxWidth="105dp"
-        android:maxHeight="140dp"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimary">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_book_50"
+            android:contentDescription="@string/book_image_description"/>
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/book_image_description" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/favorite"
         android:layout_width="24dp"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
+        android:layout_height="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:paddingBottom="16dp"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/baseline_favorite_24"
-        app:tint="@color/colorOnSecondary" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/colorOnSecondary"
+        android:contentDescription="@string/favorite_description_book_item" />
 
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/photo"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:layout_toStartOf="@+id/photo"
-        android:orientation="vertical">
+        android:layout_toStartOf="@+id/photoConstraintLayout"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/photoConstraintLayout"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/name"
             style="@style/BookItemText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="6dp"
+            android:layout_marginBottom="6dp"
             tools:text="Жизнь, необыкновенные и удивительные приключения Робинзона Крузо" />
 
         <TextView
@@ -64,4 +79,10 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

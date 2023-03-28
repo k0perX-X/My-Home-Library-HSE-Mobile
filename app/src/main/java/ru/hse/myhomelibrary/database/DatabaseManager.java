@@ -46,13 +46,11 @@ public class DatabaseManager {
             List<BookEntity> books = new ArrayList<>();
             BookEntity book;
             book = new BookEntity();
-            book.id = 0;
             book.name = "12 стульев";
             book.author = "Ильф и Петров";
             book.favorite = 1;
             books.add(book);
             book = new BookEntity();
-            book.id = 1;
             book.name = "Жизнь, необыкновенные и удивительные приключения Робинзона Крузо";
             book.author = "Даниэль Дефо";
             book.favorite = 0;
